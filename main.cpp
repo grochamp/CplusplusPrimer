@@ -1,6 +1,11 @@
 #include <iostream>
 
+using namespace std;
+
 int main() {
-    std::cout << "Helloaaa World" << std::endl;
+
+    cout << "HELLO World" << endl;
+
     return 0;
 }
+
