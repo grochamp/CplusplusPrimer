@@ -1,32 +1,31 @@
 #include <iostream>
 using namespace std;
-int main (){
 
-    int a;
-    cin >> a;
-    switch (a){
-//case에 해당하면 해당 값에 따름. 해당하지 않으면 default에 따름
-case 1:
-        cout << "입력값 1 \n";
-        break;//break 안걸어주면 default값도 들어감
+//함수 원형에는 함수명, 매게변수만 있으면 된다
+void multiply(int x, int y);
 
-    
-default: cout << "이외의값 \n";
+void welcome(int, int);//리턴값 없는 함수
+float number(int z);//리턴값 있는 함수
+
+int main(){
+//리턴값이 없는 함수 : void로 시작
+//있는 함수 : typeName 알려야함
 
 
-    }
-  cout <<"스위치 끝 \n";
 
-//continue : 무시하고넘어감
-int b = 0;
-while (b < 5) {
-    b++;
-if (b == 2) continue;
-cout << b << " ";
+int a, b;
+cout << "a값 ";
+cin >> a;
+cout << "b값 ";
+cin >> b;
+multiply(a, b);
 
-}
 
 
 
     return 0;
+}
+void multiply(int x, int y) {
+    cout << x*y << endl;
+    
 }
