@@ -43,3 +43,5 @@ Time sum(Time* t1, Time* t2){
 void showTime(Time t1) {
     cout << t1.hours << "시간 " << t1.mins << "분" << endl;
 }
+
+//함수에도 포인터가있다.
