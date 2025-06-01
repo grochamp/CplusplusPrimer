@@ -1,49 +1,22 @@
 #include <iostream>
 using namespace std;
 
+template <class NAME>//NAME이라는 템플릿 선언
+NAME sum(NAME, char);//함수이름은 sum이고 매게변수는 int와 float
+
+int main(){
 
 
-struct Time
-{
+int a=3;
+char b='c';
 
-    int hours;
-    int mins;
-};
+cout << sum(a, b) << endl;   //<double>로 표현가능
 
-const int minsPerHr = 60;
-Time sum(Time*, Time*);
-void showTime(Time);
-
-int main()
-{
-//함수는 원본이 아닌 복사본을 대상으로 작업한다.
-
-Time day1 = {1, 45};
-Time day2 = {2, 17};
-Time total = sum(&day1, &day2);   //&: 주소연산자
-
-cout << "소요시간 : ";
-showTime(total);
-
-return 0;
+    return 0;
 }
 
-Time sum(Time* t1, Time* t2){
-    Time total;
-
-    total.mins = (t1->mins + t2->mins) %minsPerHr;  //포인터에서 접근할때는 ->사용 //x+y의 시간을 제외한 나머지
-    total.hours = t1->hours + t2->hours +   //x+y+분의 몫
-    (t1->mins + t2->mins) / minsPerHr;
-
-    return total;
-
-
+template <class NAME>
+NAME sum(NAME a , char b){
+return a+b;
 
 }
-void showTime(Time t1) {
-    cout << t1.hours << "시간 " << t1.mins << "분" << endl;
-}
-
-//함수에도 포인터가있다.
-//디폴트 매게변수를 설정하면 값을 설정하지 않았을때 디폴트 값으로 함수 결과를 낸다. 반드시 오른쪽에서 왼쪽으로 적어야한다. 함수 선언부에만 써야한다
-//매게변수는 중간 생략 불가. y값만 있는건 가능. x값만 있는건 불가능
