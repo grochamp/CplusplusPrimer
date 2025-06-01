@@ -31,8 +31,8 @@ return 0;
 Time sum(Time* t1, Time* t2){
     Time total;
 
-    total.mins = (t1->mins + t2->mins) %minsPerHr;  //포인터에서 접근할때는 ->사용
-    total.hours = t1->hours + t2->hours +
+    total.mins = (t1->mins + t2->mins) %minsPerHr;  //포인터에서 접근할때는 ->사용 //x+y의 시간을 제외한 나머지
+    total.hours = t1->hours + t2->hours +   //x+y+분의 몫
     (t1->mins + t2->mins) / minsPerHr;
 
     return total;
