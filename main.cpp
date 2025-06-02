@@ -1,15 +1,17 @@
 #include <iostream>
 using namespace std;
 int main(){
-
-
+    
+    int b = 0;
     int sum = 0;
-    int number = 0;
-    for (number=0; number<=10; ++number)
+while (cin >> b){
     
-        /* code */sum +=number;
-    
+    sum +=b;
     cout << sum << endl;
+
+
+
+
+
     
-return 0;
-}
+}return 0;}
