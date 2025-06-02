@@ -1,22 +1,21 @@
 #include <iostream>
 using namespace std;
 
-template <class NAME>//NAME이라는 템플릿 선언
-NAME sum(NAME, char);//함수이름은 sum이고 매게변수는 int와 float
 
-int main(){
+int main()
+    {
+    int number = 50, sum = 0;
+    
+    while (number <= 100){
+    sum = sum + number;
+    number = number+1;
+
+    }
+    cout << "총 합은 " << sum << endl; 
 
 
-int a=3;
-char b='c';
 
-cout << sum(a, b) << endl;   //<double>로 표현가능
+
 
     return 0;
-}
-
-template <class NAME>
-NAME sum(NAME a , char b){
-return a+b;
-
 }
