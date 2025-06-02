@@ -1,14 +1,16 @@
 #include <iostream>
 using namespace std;
+int main(){
 
- int main(){
+    int a, b= 0;
+    cin >> a >> b;
+    while(a<b-1){
+        
+        cout << a+1 << endl;
+        ++a;
+    }
 
-int a = 11;
-while (a>0){
-a -= 1;
-cout << a << endl;
-}
 
+        return 0;
 
-    return 0;
 }
