@@ -2,29 +2,17 @@
 using namespace std;
 int main(){
 
-int currVal = 0, val = 0;
-if (cin >> currVal){ //입력이 성공하면 
-    int cnt = 1;
-    while (cin >> val){ // 입력이 성공하면
-        if (val == currVal)
-        ++cnt; //카운트 늘리기
-        else {
-            cout << currVal << " occurs "
-            << cnt << "times" << endl;
-            currVal = val;
-            cnt = 1;
-//다른 순간 출력
-        }
-    }
-    cout << currVal << " occurs " 
-    << cnt << " times" << endl;
-    // 마지막 값을 출력하기위해 while문 이후에 출력
 
+    int a = 0, b = 0;
+    // 첫번째 입력값이 두번째 입력값보다 작게하는 방법
+    while (true){
+    cout << "fisrt number must be lower than second number" << endl;
+    cin >> a >> b;
+    if (a < b) break;
+    cout << "error" << endl;
 }
+cout << "complete. a is " << a << " and b is " << b << endl;
 
+return 0;
 
-
-
-
-    return 0;
 }
