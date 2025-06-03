@@ -3,10 +3,10 @@
 using namespace std;
 int main(){
 
-    int a = 0;
+    string a;
     int b = 0;
-    vector<int> number;//number라는 이름의 int를 취급하는 벡터
-while (cin >> a){//int값을 입력할때마다
+    vector<string> number;//number라는 이름의 int를 취급하는 벡터
+while (cin >> a){//string값을 입력할때마다
     number.push_back(a);
 } 
 for(b; b<number.size(); ++b){//b는 number 항목수만큼 커진다
