@@ -1,19 +1,29 @@
+#include <string>
 #include <iostream>
-#include <vector>//vector 라이브러리 사용
+#include <vector>
+#include <algorithm>
+#include <cctype>
+
 using namespace std;
 int main(){
+string word;
+vector<string> words;
+int a = 0;
+int count = 0;
+while(cin >> word){
+transform(word.begin(), word.end(), word.begin(), ::toupper); //stl써서  word전체를 toupper 적용해서 대문자로바꿈
+words.push_back(word);
 
-    string a;
-    int b = 0;
-    vector<string> number;//number라는 이름의 int를 취급하는 벡터
-while (cin >> a){//string값을 입력할때마다
-    number.push_back(a);
-} 
-for(b; b<number.size(); ++b){//b는 number 항목수만큼 커진다
-    cout << number[b] << " ";
-    
-    
 }
-cout << endl;
+for(a; a<words.size(); ++a){
+    cout << words[a] << " ";
+    count++;
+
+    if (count % 8 == 0)
+
+{
+    /* code */cout << endl;
+}
+}
     return 0;
-}//입력완료 : ctr + z + ent
+}
