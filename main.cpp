@@ -1,18 +1,16 @@
 #include <iostream>
 using namespace std;
+struct Sales_data{
+
+
+    string bookNo; //값 명시 안했으니 빈 문자열
+    unsigned units_sold = 0; //0으로 명시
+    double revenue = 0.0;
+
+};
 int main(){
 
 
-    int a = 0, b = 0;
-    // 첫번째 입력값이 두번째 입력값보다 작게하는 방법
-    while (true){
-    cout << "fisrt number must be lower than second number" << endl;
-    cin >> a >> b;
-    if (a < b) break;
-    cout << "error" << endl;
-}
-cout << "complete. a is " << a << " and b is " << b << endl;
 
-return 0;
-
+    return 0;
 }
