@@ -1,15 +1,14 @@
 #include <iostream>
-#include <algorithm>
-#include <string>
 using namespace std;
-string words("안녕");
-string wordss("안아녕");
 int main(){
-    if (equal(begin(words),end(words),begin(wordss)))
-{cout << "같음" << endl;
-    /* code */
+
+int ia[3][4];
+    for (int (*p)[4] = ia; p != ia +3; ++p){
+        for (int *q = *p; q != *p + 4; ++q){
+            cout << *q << " ";
 }
-else{
-    cout << "다름" << endl;
+    cout << endl;
+    }
+
+    return 0;
 }
-return 0;}
