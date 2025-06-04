@@ -1,17 +1,15 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <string>
 using namespace std;
-int number[] = {1, 3 ,5 ,7};
-int nuumber[] = {1, 3, 5 ,9};
+string words("안녕");
+string wordss("안아녕");
 int main(){
-    if (equal(begin(number),end(number),begin(nuumber)))
-    {
-        /* code */cout << "같음" << endl;
-    }
-    else{
-        cout << "다름" << endl;
-    }
-    
-    return 0;
+    if (equal(begin(words),end(words),begin(wordss)))
+{cout << "같음" << endl;
+    /* code */
 }
+else{
+    cout << "다름" << endl;
+}
+return 0;}
