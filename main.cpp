@@ -2,16 +2,12 @@
 using namespace std;
 int a = 0;
 int main(){
+cin >> a ;
+string win = (a>=90) ? "1차 합격" 
+: (a>=70) ? "2차 합격" : " 불합격";
+    cout << win << endl;
 
- 
-cin >> a;
-if (a % 2 == 0){
-    cout << "짝수" << endl;
-    
-}
-else{
-        cout << "홀수" << endl;
-        
-    }
+
+
     return 0;
 }
