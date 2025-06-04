@@ -1,15 +1,20 @@
 #include <iostream>
+#include <string>
 using namespace std;
-int a = 0;
-int main(){
-    if(cin >> a){
-        if(a>=90){cout << " A" << endl;}
-        else if(a >= 80){cout << "B" << endl;}
-        else if(a >= 70){cout << "C" << endl;}
-        else{cout << "F"<< endl;}
 
-    
+string word;
+char ch;
+int number;
+int main(){
+    cin >> word;
+    for (char ch : word){
+        switch(ch){
+            case 'a': case 'e':
+            ++number;
+            break;
+        }
     }
+    cout << number << endl;
 
 
     return 0;
