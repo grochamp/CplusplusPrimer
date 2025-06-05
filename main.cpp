@@ -1,29 +1,21 @@
 #include <iostream>
+#include <bitset>
 int main(){
-    using namespace std;
+using namespace std;
 
-    bool x = true;
-    bool y = false;
-    cout << (x && y) << endl; //both true -> true, this case false(0)
+    unsigned int a = 3;
+    unsigned int x = 0b1100;//2진수 표현볍 : 앞에 0b붙이기
+    unsigned int y = 0b0110;
 
-    cout << (x || y) << endl; //at least one true -> true this case x true-> true(1)
+    cout << bitset <4>(a) << endl;//bitset : 2진수 자릿수
 
-    int v =1 ;
-    if(v == 0 || v == 1) // or
-    cout << "v is 0 or 1" << endl;
+    unsigned int b = a << 2; //왼쪽으로 x을 옮기고 나머지 오른쪽은 비움(2의x승)
+    cout << bitset<4>(b) << endl;
 
-    //short circuit evaluation
-    int p = 2;
-    int q = 2;
-    if (x ==1 && y == 2){//if(x,y) if x is uncorrect, don't calculate y
-
-    }
-
-    //De Morgan's Law
-    !(x && y); // -> same as !x || !y
-    !(x || y); // same as !x && !y
+    cout << bitset<4>(x & y) << endl; //and : 둘다 1이면 1
+    cout << bitset<4>(x | y) << endl; //or : 하나만 1이면 1
+    cout << bitset<4>(x ^ y) << endl; //두 수 일치 안하는부분 : 1, 두수 같으면 :0
 
 
-    
     return 0;
 }
