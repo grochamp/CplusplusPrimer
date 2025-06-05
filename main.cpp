@@ -1,17 +1,27 @@
 #include <iostream>
+#include "MY_CONSTANTS.h"
+using namespace std;
+//const는 범위내에서만 작동
+void printNumber(const int my_number) //parameter에 const 넣는경우 많음 
+{
+    cout << my_number << endl;//
+}
+
 int main(){
-    using namespace std;
 
-    float pi = 3.14;
-    unsigned int n =5u;
-    long n2 = 5L;
-    //8진수 Octal 0123456710111213
-
-    const int price_per_item = 10;//매직넘버하지마세요
-    int num_items = 123;
-    int price = num_items * price_per_item;
+    printNumber(123);
 
 
+double const gravity{ 9.8 };//定数 = constant
+gravity == 1.2;
 
+    const int my_const(123);// 컴파일할때 const되는 함수
+    int numers;
+    cin >> numers;
 
-    return 0;}
+    const int special_number(numers);//런타임할때 const되는 함수 
+
+    cout << constants::moon_gravity;
+
+    return 0;
+}
