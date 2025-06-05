@@ -1,16 +1,18 @@
 #include <iostream>
-using namespace std;
+#include <iomanip>
+#include <limits>
+#include <cmath>
 
-void my_function(){
-
-
-}
 int main(){
+    using namespace std;
 
-    int i= 123;
-    float f = 3.14f;
-    void *my_void;
-    my_void = (void*)&i;
-    my_void = (void*)&f;
+    double zero = 0.0;
+    double posinf = 5.0 / zero;
+    double neginf = -5.0 /zero;
+    double nan = zero / zero;
+    cout << posinf << " " << isnan(nan) << endl;
+    cout << neginf <<  " " << isnan(nan) <<endl;
+    cout << nan << " " << isnan(nan) << endl;
     return 0;
+
 }
