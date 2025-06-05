@@ -1,24 +1,17 @@
 #include <iostream>
 int main(){
     using namespace std;
-    char c1(65);//A
-    char c2('A');
-    char c3;
-cout << char(65) << endl;
-cout << int('A') << endl; //65
 
+    float pi = 3.14;
+    unsigned int n =5u;
+    long n2 = 5L;
+    //8진수 Octal 0123456710111213
 
-cout << static_cast<char>(65) << endl;//static cast : char로 나오게 강제
-cout << static_cast<int>('A') << endl;//static cast : int로 나오게 강제
-
-// cin >> c3;
-// cout << c3 << " " <<static_cast<int>(c3) << endl;
-
-cout << int('\t') << endl;
-cout << "첫번째라인\n두번째줄";
+    const int price_per_item = 10;//매직넘버하지마세요
+    int num_items = 123;
+    int price = num_items * price_per_item;
 
 
 
 
-return 0;
-}
+    return 0;}
