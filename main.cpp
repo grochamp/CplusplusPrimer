@@ -1,17 +1,15 @@
 #include <iostream>
-using namespace std;
-
-int adding (int x, int y){
-    return x + y;
-}
-
+using namespace std;    
 int main(){
+    
+    float a = 1.0f;
+    double d = a;
+    cout << typeid(a).name() << endl;
+    int x = 30000;
+    char word = x;
+    cout << static_cast<int>(word) << endl;//어이없는숫자
 
-auto a = 123; //자료형 스스로 판단함
-auto b = 3.14;
-auto result = adding(1, 2);
-cout << result << endl;//auto를 parameter type에는 사용 불가
-
+    
 
 
     return 0;
