@@ -1,2 +1,2 @@
-#pragma once//헤더가드
+#pragma once 
 int add (int a, int b);

@@ -1,21 +1,27 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
-int adding(int a, int b){
-    return a+b;
-}
-
 int main(){
-    int x = 6, y = 6;
 
-    // cout << x << " " << y << endl;
-    // cout << ++x << " " << ++y << endl;  //전처리 7 7 후 출력 : 7 7
-    cout << x++ << " " << y++ << endl; //후처리 : 출력은 그대로 66하고 이후에 7 7 됨
-    cout << x << " " << y << endl; 
-    int a = 4;
-    int b = adding(a, ++a); //쓰지마라. 위험하다. 값은 10이나온다.
-    cout << b << endl;
+    float a;
 
+    cout << sizeof(a) << endl;
+    cout << sizeof(float)<< endl;//size of는 연산자
+
+int x =3;
+int y = 5;
+int z = (++x, ++y);//특이하게 ++x, ++y, ++y 값을 반환함. 괄호를 한 경우만
+cout << x << " " << y << " " << z;
+
+//조건부연산자. 복잡한 환경에선 쓰지마라
+bool onSale = true;
+const int price = (onSale == true)? 10:100;
+
+// if (onSale)
+// price = 10;
+// else
+// price =100;
+cout << price << endl;
 
     return 0;
+
 }
