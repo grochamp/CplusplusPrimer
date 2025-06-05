@@ -9,6 +9,7 @@
                 "-g",
                 "C:\\Programming\\add.cpp",
                 "C:\\Programming\\add.h",
+                "C:\\Programming\\test.cpp",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
