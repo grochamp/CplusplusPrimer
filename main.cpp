@@ -1,16 +1,15 @@
 #include <iostream>
-#include "add.h"
+#include <algorithm>
 using namespace std;
-int a, b = 0;
-namespace special1{
-    int sppecial1(int a, int b)
-    {return a+b;
-    }
-}
+#define LIKE_APPLE
+
 
 int main(){
-cout << special1::sppecial1(1, 55) << endl;
-
-
+#ifdef  LIKE_APPLE
+    cout << "APPLE" << endl;
+#else
+    cout << "ORANGE" << endl;
+#endif
     return 0;
+
 }
