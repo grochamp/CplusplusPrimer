@@ -1,26 +1,29 @@
 #include <iostream>
-#include <cmath>
 int main(){
-     using namespace std;
+    using namespace std;
+
+    bool x = true;
+    bool y = false;
+    cout << (x && y) << endl; //both true -> true, this case false(0)
+
+    cout << (x || y) << endl; //at least one true -> true this case x true-> true(1)
+
+    int v =1 ;
+    if(v == 0 || v == 1) // or
+    cout << "v is 0 or 1" << endl;
+
+    //short circuit evaluation
+    int p = 2;
+    int q = 2;
+    if (x ==1 && y == 2){//if(x,y) if x is uncorrect, don't calculate y
+
+    }
+
+    //De Morgan's Law
+    !(x && y); // -> same as !x || !y
+    !(x || y); // same as !x && !y
+
+
     
-/*
-     int x, y;
-     cin >> x >> y;
-     cout << "입력한 int 값은 " << x << "와 " << y <<"입니다"<<endl;*/
-
-     double d1(100 - 99.99);
-     double d2(10-9.99);
-
-     cout << d1 << endl;
-     cout << d2 << endl;
-     if (d1 == d2){//different
-        cout << "equal" << endl;
-     }
-     else {
-        cout << "not equal" << endl;
-     }
-     cout << d1 - d2 << endl; //5.32907e-15
-    
-
     return 0;
 }
