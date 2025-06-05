@@ -1,25 +1,31 @@
 #include <iostream>
-#include <bitset>
+using namespace std;
+int apple = 5;//메모리를 차지하는곳은 한곳밖에없다. 정의는 한곳에서밖에 못한다
+int a =199999;
+namespace some{
+void doSomething(){
+
+    a += 3;
+}}
+
+namespace some1{
+void doSomething(){
+
+    a += 5;
+}}
+
 int main(){
-    using namespace std;
-    const unsigned int red_mask = 0xFF0000;
-    const unsigned int green_mask = 0x00FF00;
-    const unsigned int blue_mask = 0x0000FF;
-    cout << bitset<32>(red_mask) << endl;
-    cout << bitset<32>(green_mask) << endl;
-    cout << bitset<32>(blue_mask) << endl;
+    // cout << apple << endl;
     
+    some::doSomething(); //함수 실행
+    cout << a << endl; //함수의 a값 출력
 
-    unsigned int pixel_color = 0xDAA520;
 
-    cout << bitset<32>(pixel_color) << endl;
-    unsigned char red = (pixel_color & red_mask) >> 16;
-    unsigned char green = (pixel_color & green_mask) >> 8;//8칸 오른쪽으로 밀어주기
-    unsigned char blue =  pixel_color & blue_mask;
-
-    cout << "red" << bitset<8>(red) << " " << int(red) << endl;
-    cout << "green" << bitset<8>(green) << " " << int(green) << endl;
-    cout << "blue" << bitset<8>(blue) << " " << int(blue) << endl;
     
+    {apple = 3; //중괄호 내에선 바뀜
+// cout << apple << endl;
 
-return 0;}
+    }
+
+    return 0;
+}
