@@ -1,47 +1,44 @@
 #include <iostream>
-#include <cstring>
+#include <typeinfo>
 using namespace std;
+
+struct Something{
+
+
+    int a, b, c;
+};
+
 
 int main(){
 
+    int x = 5;
 
-    char source[] = "Copy this!" ;
-    char dest[50]; //50개짜리 문자 배열
-    strcpy_s(dest, 50, source);
+    int *ptr_x = &x, *ptr_y = &x;
 
-    cout << source << endl;
-    cout << dest << endl;
-    
+    cout << typeid(ptr_x).name() << endl; //pi
+//데이터 타입이랑 주소 상관없음
+    cout << ptr_x << endl;//위치
+    cout <<*ptr_x << endl;//역참조해서 다시 값
+//포인터는 반드시 초기화해서 써라
 
-    
-
-    // char myString[255];
-
-    // cin.getline(myString, 255);
-    // int ix =0;
-    // while (true){
-
-    //     if(myString[ix] == '\0') break;
-
-    //     cout << myString[ix] << " " << (int)myString[ix] << endl;
-    //     ++ix;
-
-
-
-    
-    //cout << myString << endl; 
-    //cin >> myString; 
-    //myString[4] = '\0'; 
-    //cout << myString << endl; //0부터 널까지 출력. 0~3만 출력함
+    Something ss;
+    Something *ptr_s;//Something의 포인터
+    cout << sizeof(Something) << endl;
+    cout << sizeof(ptr_s) << endl;
 
 
 
 
-    //for (int i = 0; i < 7; ++i)
-    //{
-        //cout << (int)myString[i] << endl;//6개가 아니라 널까지해서 7개
-       // cout << sizeof(myString) / sizeof(myString[0]) << endl; // 7 / 1 = 7
+    /*
+    int x = 5; // 변수 값
+    cout << &x << endl; // x의 메모리 주소
 
-    //}
+    //de-reference operator(*) :직접접근
+
+    cout << *&x << endl;
+
+
+*/
+
     return 0;
 }
