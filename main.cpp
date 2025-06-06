@@ -1,34 +1,47 @@
 #include <iostream>
-#include <cstdint>
-
+#include <cstring>
 using namespace std;
 
 int main(){
 
 
-    const int num_rows = 3;
-    const int num_columns = 5;
+    char source[] = "Copy this!" ;
+    char dest[50]; //50개짜리 문자 배열
+    strcpy_s(dest, 50, source);
+
+    cout << source << endl;
+    cout << dest << endl;
+    
 
     
 
-        int array[num_rows][num_columns] = 
-        {
-            {1, 2, 3, 4, 5}, //row 0
-            {6, 7, 8, 9, 10}, //row 1
-            {11, 12, 13, 14, 15} //row 2
-        };
-        for(int row = 0; row < num_rows; ++row)
-    {
-        for(int col = 0; col < num_columns; ++col)
+    // char myString[255];
+
+    // cin.getline(myString, 255);
+    // int ix =0;
+    // while (true){
+
+    //     if(myString[ix] == '\0') break;
+
+    //     cout << myString[ix] << " " << (int)myString[ix] << endl;
+    //     ++ix;
 
 
-            //cout << '[' << row << ']' << '[' << col << ']' << '\t';
-            //cout << array[row][col] << '\t';
-            
-            cout << &array[row][col] << '\t';
-            cout << endl;
-    }
-        cout << endl;
+
+    
+    //cout << myString << endl; 
+    //cin >> myString; 
+    //myString[4] = '\0'; 
+    //cout << myString << endl; //0부터 널까지 출력. 0~3만 출력함
 
 
-    return 0;}
+
+
+    //for (int i = 0; i < 7; ++i)
+    //{
+        //cout << (int)myString[i] << endl;//6개가 아니라 널까지해서 7개
+       // cout << sizeof(myString) / sizeof(myString[0]) << endl; // 7 / 1 = 7
+
+    //}
+    return 0;
+}
