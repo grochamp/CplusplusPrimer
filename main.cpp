@@ -1,30 +1,34 @@
 #include <iostream>
+#include <cstdint>
+
 using namespace std;
 
-void printArray(int array[], int length){
-
-for(int index = 0; index<length; ++index)
-    cout << array[index] << " ";
-    cout << endl;
-
-}
 int main(){
 
-    const int length = 5;
-    int array[length] = {3, 13, 5, 7, 9};
-    int biggernumber = array[0];
 
-    for(int indexnum = 0; indexnum<length; ++indexnum)
-        {
-            if(array[indexnum] > biggernumber){
-                biggernumber == array[indexnum];
-            }
-                
-        }
+    const int num_rows = 3;
+    const int num_columns = 5;
 
     
-    printArray(array, length);
+
+        int array[num_rows][num_columns] = 
+        {
+            {1, 2, 3, 4, 5}, //row 0
+            {6, 7, 8, 9, 10}, //row 1
+            {11, 12, 13, 14, 15} //row 2
+        };
+        for(int row = 0; row < num_rows; ++row)
+    {
+        for(int col = 0; col < num_columns; ++col)
 
 
-    return 0;
-}
+            //cout << '[' << row << ']' << '[' << col << ']' << '\t';
+            //cout << array[row][col] << '\t';
+            
+            cout << &array[row][col] << '\t';
+            cout << endl;
+    }
+        cout << endl;
+
+
+    return 0;}
