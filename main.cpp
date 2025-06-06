@@ -1,13 +1,30 @@
 #include <iostream>
-#include <cmath>
 using namespace std;
+
 int main(){
 
-    goto skip;//순서가 말도안됨. goto는 돌아가는 방법임
-    int x = 5;
 
-skip:
-    x +=3;
+    int count = 10;
+    // while(1){
+
+
+    //     cout << count << endl;
+    //     ++count;
+
+    //     if(count == 10) break;
+
+    while(1){
+
+        // cout << count << endl;
+        ++count;
+        if (count  % 1000 == 0) {
+        cout << "1000의 배수" << " " << count << endl;}
+        
+        // break;
+   
+
+
+    }
 
     return 0;
 }
