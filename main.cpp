@@ -1,31 +1,27 @@
 #include <iostream>
 using namespace std;
 
+void breakorReturn(){
+    while (true)
+    {
+        char ch;
+        cin >> ch;
 
-int pow(int base, int exponent){
+        if (ch == 'b')
+        break;
+        if(ch == 'r')
+        return;
+//continue : 아래에 있는거 실행안하고 다음값으로감
+    }
+cout << "hello"<< endl;
 
-    int result = 1;
-
-    for (int count = 0; count < exponent; ++count)
-    result *= base;
-    return result;
 }
 
 int main(){
 
-
-
-
-int count = 0;
-for(; count < 10; ++count)//값을 밖에두고 그냥 ;로 부를수있다. 조건도 없애고 그냥 ;;로 할수도있다.
-{
- 
-cout << count << endl;
-cout << pow(2,4) << endl;
-
-}
-
+    breakorReturn();
 
 
     return 0;
+
 }
