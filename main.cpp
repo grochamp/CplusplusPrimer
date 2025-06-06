@@ -2,26 +2,32 @@
 #include <typeinfo>
 using namespace std;
 
-enum Color 
+enum class Color //enum에 class를 더해서 영역제한
 {
-    COLOR_BLACK, //일일이 지정도 가능
+    COLOR_BLACK, 
     COLOR_RED,
     COLOR_BLUE,
-    COLOR_GREEN,//last에 ,박아도됨
+    COLOR_GREEN,
+};
+
+enum class Food
+{
+    RAMEN,
+    HAMBURGER,
+    RICE,
+    SUSHI,
+
 };
 
 
-
 int main(){
+    Color color = Color::RED;
+    Food food = Food::RAMEN;
 
-
-    Color paint = COLOR_BLACK;
-    Color interrior = COLOR_GREEN; //Color안에서 0~3중 3라서 3
-    Color road = COLOR_RED;//Color 안에서 0~3에서 1이라서 1
-    Color box = COLOR_BLUE;
-    cout << road << endl;
-    //cin으로 받을수 없음.
     
+
+
+  
 
     return 0;
 }
