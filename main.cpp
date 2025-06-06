@@ -1,28 +1,29 @@
 #include <iostream>
 using namespace std;
 
+void printArray(int array[], int length){
+
+for(int index = 0; index<length; ++index)
+    cout << array[index] << " ";
+    cout << endl;
+
+}
 int main(){
 
-    const int num_students = 5;
-    int scores[] = {74, 66, 12, 78, 90};
-    int total_score = 0;
-    int max_score = 0;
+    const int length = 5;
+    int array[length] = {3, 13, 5, 7, 9};
+    int biggernumber = array[0];
 
-
-    for (int i = 0; i < num_students; ++i){
-
-        total_score +=scores[i];
-        if (max_score<scores[i])
+    for(int indexnum = 0; indexnum<length; ++indexnum)
         {
-            max_score=scores[i];
+            if(array[indexnum] > biggernumber){
+                biggernumber == array[indexnum];
+            }
+                
         }
-        
-    }
-    cout << total_score << endl;
-    cout << max_score << endl;
+
     
-
-
+    printArray(array, length);
 
 
     return 0;
