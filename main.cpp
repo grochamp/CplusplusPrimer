@@ -1,31 +1,28 @@
-#include <iostream>
+#include <iostream>>
 using namespace std;
-
-
-const char* getName()
-{
-
-    return "Jokichi";
-}
-
-
 
 int main(){
 
-    const char *name = getName();
-    const char *name2 = getName();
-    
+//int *ptr = new int;
 
-    cout << (uintptr_t)name << endl;
-    cout << (uintptr_t)name2 << endl;//내용이 같으면 주소도 같음
+//*ptr = 8;//var = 8과 같은 얘기
+int *ptr = new int{ 8 };
+cout << ptr << endl;
+cout << *ptr << endl;
 
-    char d = 'P';
-    cout << &d << endl;//이상한값나옴:널찾느라
-
+delete ptr;
 
 
+cout << "데이터 없앴는데 " << ptr << " 주소랑" << *ptr << " 값이 있네"; //delete했는데 다 남아있음
+ptr = nullptr;
+if (ptr != nullptr)//유효하면
+{
 
+    cout << ptr << endl;
+    cout << *ptr << endl;
+}
 
+    //int arra[100000]; //정적 할당: stack 작음 동적 : hip 큼
 
     return 0;
 }
