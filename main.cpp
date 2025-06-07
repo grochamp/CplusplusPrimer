@@ -1,39 +1,23 @@
 #include <iostream>
 using namespace std;
-
-struct Person{
-
-    int age;
-    double weight;
-    string name;
-
-};
-
-
-
 int main(){
 
 
-    Person person;
-    person.age= 5;
-    person.weight=30;
-    Person &ref = person;
-    ref.age = 15;
+    int fibonacci[] = {0, 1, 1, 2, 3, 5, 8, 13, 21,34, 55, 89};
 
 
-    Person *ptr = &person;
-    ptr->age =30; //표현방법이 이래요
-    (*ptr).age = 20;
+    for (auto &number : fibonacci)
+    number *=10;
 
-    Person &ref2 = *ptr;
-    ref.age = 43;
-    cout << &person << endl;
-    cout << &ref2 << endl;
+for (const auto &number :fibonacci)
+cout << number << " ";
+cout << endl;
 
 
 
 
 
 
-    return 0;
+return 0;
+
 }
