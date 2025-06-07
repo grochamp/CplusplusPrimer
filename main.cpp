@@ -2,17 +2,34 @@
 using namespace std;
 int main(){
 
-    // const int value = 5;//포인터 constant : 주소변경은 가능. 값은 못바꿈. 반대도 가능
-    // int *ptr = &value;
-    // *ptr = 6;
-    // cout << *ptr << endl;
+    int value = 5;
+
+    int *ptr = nullptr;
+    ptr = &value;
+
+    int &ref = value;//ref는 반드시 초기화되어야한다. 단 literal이 아니라 변수를 넣어야함
+    cout << ref << endl;
+    ref = 10;
+    cout << value << " " << ref << endl;
+    cout << &ref << endl;
+    cout << &value << endl;
+    cout << ptr << endl;
+    cout << *ptr << endl;
+
+    // int x = 5;
+    // int &ref = x;
+
+    // const int y = 9;
+    // const int &ref = y;
 
     int value1 = 5;
-    const int *ptr = &value1;
+    int value2 = 10;
+    int &ref1 = value1;
 
-    int value2 = 6;
-    ptr = &value2;
-    
+    cout << ref1 << endl;
+    ref1 = value2;
+    cout << ref1 << endl;
+
 
 
 
