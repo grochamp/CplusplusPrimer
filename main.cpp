@@ -1,36 +1,15 @@
 #include <iostream>
-#include <array>
 using namespace std;
 
-    int& get(array<int, 100>& my_array, int ix)
-    {
-        return my_array[ix];
-    }
-
-/*
-int getValue (int x)
+inline int min(int x, int y)//inline대로 main의 min에서 함
 {
-    int value = x * 2;
-    return value;
-
+    return x > y ? y : x;
 }
-*/
-/*
-int* allocateMemory(int size)
-{
-    return new int[size];
 
-
-}*/
 int main()
 {
-    array<int, 100> my_array;
-    my_array[30] = 10;
-
-    get(my_array, 30) = 1024;
-
-    cout << my_array[30] << endl;
+    cout << min(5, 6) << endl;
+    cout << min(3, 2) << endl;
 
     return 0;
-
 }
