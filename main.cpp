@@ -1,27 +1,15 @@
 #include <iostream>
-#include <array>
 using namespace std;
 
-void printLength(const array<int, 5>& my_arr)
-{
-cout << my_arr() << endl;
+int foo(int x, int y)
+{return x+y;}
+int main(){
+
+    int x = 1, y = 2;
+    foo(6, 7);
+    foo(x, y+1);
+    cout << foo(x, y+1);
 
 
-
-
-}
-
-int main()
-{
-
-array<int, 5> my_arr = {1, 2, 3, 4, 5};
-my_arr = {0,1,2,3,4};
-my_arr = {0,1,2};
-
-cout << my_arr[10] << endl;
-cout << my_arr.at(10) << endl;
-
-
-return 0;
-
+    return 0;
 }
