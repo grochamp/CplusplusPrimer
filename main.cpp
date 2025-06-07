@@ -1,26 +1,17 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
-int func()
+void printStack(const vector<int> &stack)
 {
-    return 5;
+for(auto &e  : stack)
+cout << e << " ";
+cout << endl;
 
-}
-
-int goo()
-{
-
-        return 19;
 }
 
 int main()
 {
-    int(*fcnptr)() = func(); //값
-    cout << fcnptr() << endl; //주소
-    fcnptr = goo;
-    cout << fcnptr() << endl;
-
-    //cout << func << endl;//함수주소
-
+    vector<int> stack;
     return 0;
 }
