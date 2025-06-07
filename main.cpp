@@ -1,14 +1,20 @@
 #include <iostream>
 using namespace std;
-
 int main(){
 
-    int fixedArray[] = { 1, 3, 5, 7};
+    // const int value = 5;//포인터 constant : 주소변경은 가능. 값은 못바꿈. 반대도 가능
+    // int *ptr = &value;
+    // *ptr = 6;
+    // cout << *ptr << endl;
 
-    int *array = new int[6] {1, 2, 3 ,4, 5};
+    int value1 = 5;
+    const int *ptr = &value1;
+
+    int value2 = 6;
+    ptr = &value2;
+    
 
 
-    delete[] array;
 
     return 0;
 }
