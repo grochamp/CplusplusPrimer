@@ -1,22 +1,26 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
-void print(string str){}
-void print(char ch =' '){}
-
-//void print(int x = 99)//함수에 아무값도 안넣으면 default 99나옴. 오른쪽 값에 default없으면 왼쪽에 default값 넣을 수 없다
+int func()
 {
-    cout << x << endl;
+    return 5;
 
 }
 
+int goo()
+{
 
-
+        return 19;
+}
 
 int main()
 {
-    print(10);
-    print();
+    int(*fcnptr)() = func(); //값
+    cout << fcnptr() << endl; //주소
+    fcnptr = goo;
+    cout << fcnptr() << endl;
+
+    //cout << func << endl;//함수주소
+
     return 0;
 }
