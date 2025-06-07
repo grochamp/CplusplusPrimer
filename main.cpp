@@ -1,35 +1,37 @@
 #include <iostream>
 using namespace std;
-
-
-void printArray(int array[]){
-
-    cout << sizeof(array) << endl; //배열 포인터값임 배열 크기가 아니고
-    cout << *array << endl;
-
-    *array = 100;
-}
 int main(){
 
-    int array[5] = {9, 7, 5, 3, 1};
-
-    cout << sizeof(array) << endl;
-
-    int *ptr = array;
-    cout << sizeof(ptr) << endl;
-
-    cout << &array[0] << endl;
-    cout << *array << endl;
     
-    // int *ptr = array;
-    // cout << ptr << endl;
-    // cout << *ptr << endl;
+    char name [] = "LeBron James";
+    const int n_name = sizeof(name) / sizeof(char);
+
+    for (int i = 0; i < n_name; ++i)
+    {
+        cout << *(name+i);
+
+    }
+    cout << endl;
 
 
-    char name[] = "jackjack";
-    cout << *name << endl;
 
-    printArray(array);
-    cout << array[0] << " " << *array << endl;
+
+
+
+
+    double array[] = { 9, 5, 1, 7};
+
+    double *ptr = array;
+    for (int i = 0; i < 5; ++i)
+    //cout << array[i] << " " << (uintptr_t)&array[i] << endl;//double array 라서 8씩 늘음
+    cout << *(ptr + i) << " " << uintptr_t(ptr+i) << endl;
+    
+/*
+    int value = 7;
+    int *ptr = &value;
+    cout << uintptr_t(ptr) << endl;
+    cout << uintptr_t(ptr+1) << endl;//int 1 늘어나서 4늘어남
+*/
+
     return 0;
 }
