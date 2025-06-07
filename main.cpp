@@ -1,15 +1,19 @@
 #include <iostream>
 using namespace std;
 
-int foo(int x, int y)
-{return x+y;}
-int main(){
+void doSomething(int y)
+{
+    cout << "In func" << y << " " << &y << endl;
+}
 
-    int x = 1, y = 2;
-    foo(6, 7);
-    foo(x, y+1);
-    cout << foo(x, y+1);
+int main()
+{
+    doSomething(5);
+    int x = 6;
+    cout << "In main" << x << " " << &x << endl;
 
+    doSomething(x);
+    doSomething(x+1);
 
     return 0;
 }
