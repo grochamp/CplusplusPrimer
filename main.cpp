@@ -1,37 +1,55 @@
 #include <iostream>
 using namespace std;
+
+
+struct Something
+{
+
+    int v1;
+    float v2;
+};
+
+struct Other
+{
+
+    Something st;
+};
+
+
+
+
+
+
+void doSomething(const int &n)
+{
+    cout << &n << endl;
+    //n =10;//const 때문에 못바꿈
+    cout << "In doSomething" << " " <<  n << endl;
+}
+
+
+
+
 int main(){
-
+    Other ot;
+    int &v1 = ot.st.v1;
+    v1 = 1;
     int value = 5;
+    int *const ptr = &value;
+    int &ref =value;
+    
+    
+    // int n = 5;
 
-    int *ptr = nullptr;
-    ptr = &value;
+    // cout << n << endl;
+    // cout << &n << endl;
 
-    int &ref = value;//ref는 반드시 초기화되어야한다. 단 literal이 아니라 변수를 넣어야함
-    cout << ref << endl;
-    ref = 10;
-    cout << value << " " << ref << endl;
-    cout << &ref << endl;
-    cout << &value << endl;
-    cout << ptr << endl;
-    cout << *ptr << endl;
+    // doSomething(n);
 
-    // int x = 5;
-    // int &ref = x;
-
-    // const int y = 9;
-    // const int &ref = y;
-
-    int value1 = 5;
-    int value2 = 10;
-    int &ref1 = value1;
-
-    cout << ref1 << endl;
-    ref1 = value2;
-    cout << ref1 << endl;
+    // cout << n << endl;
 
 
+    // return 0;
 
 
-    return 0;
 }
