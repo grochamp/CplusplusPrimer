@@ -1,15 +1,24 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
-inline int min(int x, int y)//inline대로 main의 min에서 함
+int add(int x, int y)//들어오는 수 똑같은데 int, double같이 약간 타입 다를경우 사용가능
 {
-    return x > y ? y : x;
+    return x + y;
+
+}
+
+double add(double x, double y)
+{
+
+    return x + y;
 }
 
 int main()
 {
-    cout << min(5, 6) << endl;
-    cout << min(3, 2) << endl;
+    cout << add(1, 2) << endl;
+    cout << add(3.88, 7.23);
+
 
     return 0;
 }
