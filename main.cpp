@@ -1,16 +1,22 @@
 #include <iostream>
-#include "calc.h"
-
-
+#include <string>
 using namespace std;
 
+class Something
+{
+    public:
+    string m_value = "default";
+    const string& getValue() const {cout << "컨스트" << endl; return m_value;}
+    string& getValue() {cout << "일반" << endl; return m_value;}
+
+};
 
 int main()
 {
-    Calc cal(10);
-    cal.add(5);
-    cal.print();
-    cal.add(10).sub(10).mult(100).print();//print는 왜 되냐
 
+    Something something;
+    something.getValue(); 
+    const Something something2;
+    something2.getValue();
     return 0;
 }
