@@ -1,17 +1,19 @@
 #include <iostream>
-#include <vector>
 using namespace std;
 
-void printStack(const vector<int> &stack)
+void fibonachi(int count, int cont)
 {
-for(auto &e  : stack)
-cout << e << " ";
-cout << endl;
+
+    cout << count+ cont  << endl;
+    if((count + cont)>100) return;
+    fibonachi(cont, count+cont);
+
 
 }
 
 int main()
-{
-    vector<int> stack;
-    return 0;
-}
+    {
+
+        fibonachi(0, 1);
+        return 0;
+    }
