@@ -1,57 +1,35 @@
 #include <iostream>
 using namespace std;
 
-//벡터 내부에는 알아서 소멸해준다.
-class IntArray
+class Calc
 {
-    private:
-    int *m_arr = nullptr;
-    int m_legnth = 0;
+    private :
+    int m_value;
 
     public:
-    IntArray(const int length_in)
-    {
-        m_legnth = length_in;
-        m_arr = new int[m_legnth];
-    }
-    int size(){return m_legnth;}
+        Calc(int init_value)
+        : m_value(init_value)
+        {}
 
-    ~IntArray() //소멸
-    {
-        delete[] m_arr;
+        Calc& add(int value) {m_value += value; return *this;}
+        Calc& sub(int value) {m_value -= value; return *this;}
+        Calc& mult(int value) {m_value *= value; return *this;}
+        
+        
+        void print()
+        {
+            cout << m_value << endl;
+        }
 
-    }
+
 
 };
-
-
-class Simple
-{
-    private:
-    int m_id;
-    public:
-    Simple(const int& id_in)
-        : m_id(id_in)
-        {
-            cout << "Constructor" << m_id << endl;
-        }
-        ~Simple()
-        {
-            cout << "Destructor" << m_id << endl;
-        }
-};
-
 int main()
 {
-    while (1)
-    {
-        IntArray my_int_arr(10000);
-        
-    }
-    // Simple *s1= new Simple(0);
-    // Simple s2(1);
-
-    // delete s1;
+    Calc cal(10);
+    cal.add(5);
+    cal.print();
+    cal.add(10).sub(10).mult(100).print();//print는 왜 되냐
 
     return 0;
 }
