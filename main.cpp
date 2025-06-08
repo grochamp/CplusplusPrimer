@@ -1,51 +1,60 @@
 #include <iostream>
 #include <cassert>
+#include <initializer_list>
 using namespace std;
 
-class Fraction
+class IntArray
 {
     private:
-    int m_numerator;
-    int m_denominator;
+        unsigned m_length = 0;
+        int *m_data = nullptr;//어떤 메모리도 가리키지 않는다
+
 
     public:
-    Fraction(char) = delete;//char형은 넣을수 없게함
-    explicit Fraction(int num = 0, int den = 1) // explicit : 엄격하게 하는 조항
-    : m_numerator(num), m_denominator(den)
-    {
-        assert(den !=0);
-    }
+        IntArray(unsigned length)
+            :m_length(length)
+            {
+                m_data = new int[length];
+            }    
 
-    Fraction(const Fraction &fraction)
-        : m_numerator(fraction.m_numerator), m_denominator(fraction.m_denominator)
+
+IntArray(const initializer_list<int> &list)
+    : IntArray(list.size())
+
+{
+        int count = 0;
+        for (auto & element : list)
         {
-            cout << "몇번 호출되었나" << endl;
+
+            m_data[count] = element;
+            ++count;
         }
-    friend ostream & operator << (ostream & out, const Fraction & f)
-    {
-        out << f.m_numerator << " / " << f.m_denominator;; //출력되는 형태
+}
+~IntArray()
+{
+    delete[] this->m_data;
+}
+
+friend ostream & operator << (ostream & out, IntArray & arr)
+{
+    for(unsigned i = 0; i < arr.m_length; ++i)
+        out << arr.m_data[i] << " ";
+        out << endl;
         return out;
 
-    }
 
+}
 };
 
-void doSomething(Fraction frac)
-{
-    cout << frac << endl;
-}
 
 int main()
 {
-    Fraction frac(7);
-    doSomething(frac);
-    
+    int my_arr1[5] = {1, 2, 3, 4, 5};//정적 할당
+    int *my_arr2 = new int[5]{1, 2, 3, 4, 5};//동적 할당
+    auto il = { 10, 20, 30};
 
-    // Fraction frac(3, 5);
-
-    // Fraction fr_copy = frac;
-
-    // cout << frac << " " << fr_copy << endl;
+    IntArray int_array {1, 2, 3, 4, 5};
+    cout << int_array << endl;
 
     return 0;
 }
