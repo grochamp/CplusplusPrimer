@@ -1,34 +1,53 @@
 #include <iostream>
 using namespace std;
 
-class Fraction
+class B
 {
-private:
-    int m_numerator; //값 지정 가능
-    int m_denominator;
+
+    private:
+    int m_b;
+
+public:
+    B(const int& m_b_in)
+    :m_b(m_b_in)
+    {}
+};
+
+
+
+
+class Something
+{
+    private:
+    int m_i;
+    double m_d;
+    char m_c;
+    int m_arr[5];
+    B m_b;
+
 
 
 public:
+    Something()
+        :m_i(1), m_d(3.14), m_c('a'), m_arr{1, 2, 3, 4, 5},m_b(m_i-1)
+        {
 
-    Fraction(const int& num_in, const int& den_in = 1)
-    {
 
-        m_numerator = num_in;
-        m_denominator = den_in;
-    }
+        }
+    
     void print()
-    {
-        cout << m_numerator << " / " << m_denominator << endl;
-    }
+{
+    cout << m_i << " " << m_d << " " << m_c << endl;
+    for (auto& e : m_arr)
+    cout << e << " ";
+    cout << endl;
+
+
+}   
 };
 
-int main()
-{
-    //Fraction frac;//파라미터가 없을때는 괄호 빼기
-    //frac.print();
-    Fraction one_thirds(1, 1);
-    one_thirds.print();
-
-
+int main(){
+    Something som;
+    som.print();
     return 0;
 }
