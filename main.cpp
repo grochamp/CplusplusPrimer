@@ -1,17 +1,18 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char *argv[])
+class Friend
 {
-    for(int count = 0; count < argc; ++count)
-    {
+public:
+    string name;
+    string address;
+    int age;
+    double height;
+    double weight;
 
-        string argv_single = argv[count];
+};
 
-        
-        cout << argv[count] << endl;
-    }
-
+int main(){
 
     return 0;
 }
