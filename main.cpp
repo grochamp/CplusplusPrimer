@@ -1,34 +1,50 @@
 #include <iostream>
 using namespace std;
-
-class A
+//직관적인 경우에만 써라
+class Cents
 {
-    public:
-    int m_value;
+private:
+int m_cents;
 
-    A(const int& input)
-    :m_value(input)
-        {
-            cout << " Constructor" << endl;
-        }
+public:
     
-    ~A()
+    Cents(int cents = 0){m_cents = cents;}
+    int getCents() const{ return m_cents;}
+    int& getCents() {return m_cents;}
+    Cents operator + (const Cents &c2)
     {
-        cout << "Destructor" << endl;
-    }
-
-    void print()
-    {
-        cout << m_value << endl;
-    }
+    return Cents(this->m_cents + c2.m_cents);
+    }  
 };
+/*
+void add(const Cents &c1, const Cents &c2, Cents &c_out)
+{
+    c_out.getCents() = c1.getCents() + c2.getCents();
+}
+Cents add(const Cents &c1, const Cents &c2)
+{
+    return Cents(c1.getCents()+c2.getCents());
+}
+
+
+Cents operator + (const Cents &c1, const Cents &c2)
+{
+    return Cents(c1.getCents() + c2.getCents());
+}*/
 int main()
 {
+    Cents cents1(6);
+    Cents cents2(11);
+    //Cents sum;
+    //add(cents1, cents2);
 
+    cout << cents1.getCents() << endl;
+   // cout << add(cents1, cents2).getCents() << endl;
+    cout << (cents1 + cents2 + Cents(5) + Cents(11)).getCents() << endl;
+    
 
-    A a(1);
-    a.print();
+    
 
-
+    
     return 0;
 }
