@@ -1,50 +1,63 @@
 #include <iostream>
+#include <fstream>
+#include <filesystem>
 using namespace std;
-//직관적인 경우에만 써라
-class Cents
-{
-private:
-int m_cents;
+namespace fs = std::filesystem;
 
-public:
-    
-    Cents(int cents = 0){m_cents = cents;}
-    int getCents() const{ return m_cents;}
-    int& getCents() {return m_cents;}
-    Cents operator + (const Cents &c2)
+class Point
+{
+    private:
+    double m_x, m_y, m_z;
+
+    public:
+    Point(double x = 0.0, double y = 0.0, double z = 0.0)
+        : m_x(x), m_y(y), m_z(z) //x를 받아서 mx값 초기화
+        {}
+
+        double getx() {return m_x;}
+        double getY() {return m_y;}
+        double getZ() {return m_z;}
+    /*
+    void print()
     {
-    return Cents(this->m_cents + c2.m_cents);
-    }  
+    cout << m_x << " " << m_y << " " << m_z << endl;
+    }*/
+   friend ostream& operator << (ostream &out, const Point &point)
+    {
+
+        out << point.m_x << " " << point.m_y << " " << point.m_z << " ";
+
+        return out;
+    }
+
+    friend istream& operator >> (istream &in, Point &point)
+    {
+
+        in >> point.m_x  >> point.m_y  >> point.m_z;
+
+        return in;
+    }
+
+
+
 };
-/*
-void add(const Cents &c1, const Cents &c2, Cents &c_out)
-{
-    c_out.getCents() = c1.getCents() + c2.getCents();
-}
-Cents add(const Cents &c1, const Cents &c2)
-{
-    return Cents(c1.getCents()+c2.getCents());
-}
-
-
-Cents operator + (const Cents &c1, const Cents &c2)
-{
-    return Cents(c1.getCents() + c2.getCents());
-}*/
 int main()
-{
-    Cents cents1(6);
-    Cents cents2(11);
-    //Cents sum;
-    //add(cents1, cents2);
+{   
+    ofstream of("out.txt");
+    
+    Point p1, p2;
 
-    cout << cents1.getCents() << endl;
-   // cout << add(cents1, cents2).getCents() << endl;
-    cout << (cents1 + cents2 + Cents(5) + Cents(11)).getCents() << endl;
+    cin >> p1 >> p2;
+
+
+
+    cout << p1 << p2 << endl;
+    of << p1 << p2 << endl;
+
+    of.close();
+    cout << "현재 실행 경로: " << fs::current_path() << endl;
     
 
-    
 
-    
     return 0;
 }
