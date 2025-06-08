@@ -9,7 +9,8 @@ class Fraction
     int m_denominator;
 
     public:
-    Fraction(int num = 0, int den = 1)
+    Fraction(char) = delete;//char형은 넣을수 없게함
+    explicit Fraction(int num = 0, int den = 1) // explicit : 엄격하게 하는 조항
     : m_numerator(num), m_denominator(den)
     {
         assert(den !=0);
@@ -29,14 +30,22 @@ class Fraction
 
 };
 
+void doSomething(Fraction frac)
+{
+    cout << frac << endl;
+}
+
 int main()
 {
+    Fraction frac(7);
+    doSomething(frac);
+    
 
-    Fraction frac(3, 5);
+    // Fraction frac(3, 5);
 
-    Fraction fr_copy = frac;
+    // Fraction fr_copy = frac;
 
-    cout << frac << " " << fr_copy << endl;
+    // cout << frac << " " << fr_copy << endl;
 
     return 0;
 }
