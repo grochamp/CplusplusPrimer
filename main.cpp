@@ -1,63 +1,53 @@
 #include <iostream>
-#include <fstream>
-#include <filesystem>
+#include <assert>
 using namespace std;
-namespace fs = std::filesystem;
 
-class Point
+class IntList
 {
-    private:
-    double m_x, m_y, m_z;
 
-    public:
-    Point(double x = 0.0, double y = 0.0, double z = 0.0)
-        : m_x(x), m_y(y), m_z(z) //x를 받아서 mx값 초기화
-        {}
+private:
+    int m_list[10];
 
-        double getx() {return m_x;}
-        double getY() {return m_y;}
-        double getZ() {return m_z;}
-    /*
-    void print()
+public:
+    int & operator [](const int index)
     {
-    cout << m_x << " " << m_y << " " << m_z << endl;
-    }*/
-   friend ostream& operator << (ostream &out, const Point &point)
-    {
+        assert(index >= 0);
+        assert(index < 10);//범위값 제한
 
-        out << point.m_x << " " << point.m_y << " " << point.m_z << " ";
 
-        return out;
-    }
+        return m_list[index];
 
-    friend istream& operator >> (istream &in, Point &point)
-    {
-
-        in >> point.m_x  >> point.m_y  >> point.m_z;
-
-        return in;
     }
 
 
+    void setItem(int index, int value)
+    {
+        m_list[index] = value;
+    }
 
+    int getItem(int index)
+    {
+        return m_list[index];
+    }
+
+    int * getList()
+    {
+        return m_list;
+    }
 };
+
 int main()
-{   
-    ofstream of("out.txt");
-    
-    Point p1, p2;
+{
+    IntList mylist;
+    mylist[3] = 99;
+    cout << mylist[3] << endl;
 
-    cin >> p1 >> p2;
-
-
-
-    cout << p1 << p2 << endl;
-    of << p1 << p2 << endl;
-
-    of.close();
-    cout << "현재 실행 경로: " << fs::current_path() << endl;
-    
-
-
+/*
+    IntList my_list;
+    my_list.setItem(3 ,1);
+    cout << my_list.getItem(3) << endl;
+    my_list.getList()[3]= 100;
+    cout << my_list.getList()[3] << endl;
+*/
     return 0;
 }
