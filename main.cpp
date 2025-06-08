@@ -1,53 +1,57 @@
 #include <iostream>
 using namespace std;
 
-class B
+//벡터 내부에는 알아서 소멸해준다.
+class IntArray
 {
-
     private:
-    int m_b;
+    int *m_arr = nullptr;
+    int m_legnth = 0;
 
-public:
-    B(const int& m_b_in)
-    :m_b(m_b_in)
-    {}
+    public:
+    IntArray(const int length_in)
+    {
+        m_legnth = length_in;
+        m_arr = new int[m_legnth];
+    }
+    int size(){return m_legnth;}
+
+    ~IntArray() //소멸
+    {
+        delete[] m_arr;
+
+    }
+
 };
 
 
-
-
-class Something
+class Simple
 {
     private:
-    int m_i;
-    double m_d;
-    char m_c;
-    int m_arr[5];
-    B m_b;
-
-
-
-public:
-    Something()
-        :m_i(1), m_d(3.14), m_c('a'), m_arr{1, 2, 3, 4, 5},m_b(m_i-1)
+    int m_id;
+    public:
+    Simple(const int& id_in)
+        : m_id(id_in)
         {
-
-
+            cout << "Constructor" << m_id << endl;
         }
-    
-    void print()
-{
-    cout << m_i << " " << m_d << " " << m_c << endl;
-    for (auto& e : m_arr)
-    cout << e << " ";
-    cout << endl;
-
-
-}   
+        ~Simple()
+        {
+            cout << "Destructor" << m_id << endl;
+        }
 };
 
-int main(){
-    Something som;
-    som.print();
+int main()
+{
+    while (1)
+    {
+        IntArray my_int_arr(10000);
+        
+    }
+    // Simple *s1= new Simple(0);
+    // Simple s2(1);
+
+    // delete s1;
+
     return 0;
 }
