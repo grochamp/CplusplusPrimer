@@ -1,53 +1,42 @@
 #include <iostream>
-#include <assert>
+#include <cassert>
 using namespace std;
 
-class IntList
+class Fraction
 {
+    private:
+    int m_numerator;
+    int m_denominator;
 
-private:
-    int m_list[10];
-
-public:
-    int & operator [](const int index)
+    public:
+    Fraction(int num = 0, int den = 1)
+    : m_numerator(num), m_denominator(den)
     {
-        assert(index >= 0);
-        assert(index < 10);//범위값 제한
+        assert(den !=0);
+    }
 
-
-        return m_list[index];
+    Fraction(const Fraction &fraction)
+        : m_numerator(fraction.m_numerator), m_denominator(fraction.m_denominator)
+        {
+            cout << "몇번 호출되었나" << endl;
+        }
+    friend ostream & operator << (ostream & out, const Fraction & f)
+    {
+        out << f.m_numerator << " / " << f.m_denominator;; //출력되는 형태
+        return out;
 
     }
 
-
-    void setItem(int index, int value)
-    {
-        m_list[index] = value;
-    }
-
-    int getItem(int index)
-    {
-        return m_list[index];
-    }
-
-    int * getList()
-    {
-        return m_list;
-    }
 };
 
 int main()
 {
-    IntList mylist;
-    mylist[3] = 99;
-    cout << mylist[3] << endl;
 
-/*
-    IntList my_list;
-    my_list.setItem(3 ,1);
-    cout << my_list.getItem(3) << endl;
-    my_list.getList()[3]= 100;
-    cout << my_list.getList()[3] << endl;
-*/
+    Fraction frac(3, 5);
+
+    Fraction fr_copy = frac;
+
+    cout << frac << " " << fr_copy << endl;
+
     return 0;
 }
