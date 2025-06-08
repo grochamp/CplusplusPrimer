@@ -10,6 +10,8 @@
                 "C:\\Programming\\add.cpp",
                 "C:\\Programming\\add.h",
                 "C:\\Programming\\test.cpp",
+                "C:\\Programming\\calc.h",
+                "C:\\Programming\\calc.cpp",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
