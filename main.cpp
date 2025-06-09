@@ -1,93 +1,82 @@
 #include <iostream>
-#include <vector>
 #include <string>
 using namespace std;
 
-class Doctor; //전방선언
-
-
-class Patient
+class Mother
 {
-    private:
-        string m_name;
-        vector<Doctor*> m_doctors;
+    protected: //private 유지하면서 상속받는애들한테는 열어줌
+        int m_i;
 
-    public :
-        Patient(string name_in)
-            : m_name(name_in)
-        {}
-    void addDoctor(Doctor * new_doctor)
-    {
-        m_doctors.push_back(new_doctor);
-    }
-    friend class Doctor;
-
-    void meetDoctors();
-    
-};
-
-class Doctor
-{
-    private:
-        string m_name;
-        vector<Patient*> m_patients;
     public:
-        Doctor(string name_in)
-            :m_name(name_in)
-            {}
-    void addPatient(Patient * new_patient)
+
+
+    void setValue(const int& i_in)
     {
-        m_patients.push_back(new_patient);
+        m_i = i_in;
     }
 
-    friend class Patient;
-
-
-    void meetPatients()
+    int getValue()
     {
-        for(auto & ele : m_patients)
-        {
-            cout << "환자자 만나기 : " << ele->m_name << endl;
-        }
+        return m_i;
     }
-
-    
-
-
-    
 };
-void Patient::meetDoctors()//따로 빼애한다다
-    {
-        for(auto & ele : m_doctors)
+
+class Child : public Mother{ //상속 표시
+
+        private :
+        double m_d;
+
+        public:
+        Child(const int & i_in, const double & d_in)
         {
-            cout << "의사 만나기 : " << ele->m_name << endl;
+
+            setValue(i_in, d_in);
         }
-    }
+
+        void setValue(const int & i_in, const double & d_in)
+        {
+            // m_i = i_in;
+            Mother::setValue(i_in);
+            m_d = d_in;
+        
+        }
+
+
+
+
+        void setValue(const double & i_in ,const double & d_in) //바로 위 setvalue와 오버로딩
+        {
+
+            m_d = d_in;
+        }
+
+        double getValue()
+        {
+            return m_d;
+        }
+    };
+class Daughter : public Mother{
+
+};
+
+class Grandson : public Mother{
+
+
+};
+
 
 int main()
 {
-    Patient *p1 = new Patient("LeBron James");
-    Patient *p2 = new Patient("Yoon Seok");
-    Patient *p3 = new Patient("Violet");
 
-    Doctor *d1 = new Doctor("Kobe Bryant");
-    Doctor *d2 = new Doctor("Lee Kuk");
+    Mother mother;
+    mother.setValue(1024);
+    cout << mother.getValue() << endl;
 
 
-    p1->addDoctor(d1);
-    d1->addPatient(p1);
 
-    p2->addDoctor(d2);
-    d2->addPatient(p2);
-
-    p1->meetDoctors();
-    d1->meetPatients();
-
-    delete p1;
-    delete p2;
-    delete p3;
-
-    delete d1;
-    delete d2;
+    Child child(1024, 128);
+    //child.setValue(128);
+    cout << child.Mother::getValue() << endl;
+    cout << child.getValue() << endl;
     return 0;
 }
