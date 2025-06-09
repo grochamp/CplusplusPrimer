@@ -1,43 +1,27 @@
 #include <iostream>
 using namespace std;
-//오버라이딩 : 부모를 재정의
-class A
+
+class Base
 {
     public:
-        virtual void print(int x) {cout << "A" << endl;} 
+
+        virtual void fun1() {};
+        virtual void fun2() {};
 };
 
-class B : public A
+class Der : public Base
 {
-    public :
-        void print(int x) override {cout << "B" << endl;} // short면 type 달라서 오버라이딩 안됨. override라고 넣으면 알아서 오류 있는지 찾아줌
-                                                        // final : 오버라이딩 막기
+    public:
+
+        virtual void fun1() {};
+        virtual void fun2() {};
 };
-
-class C : public B
-{
-        public:
-        void print() {cout << "C" << endl;}
-
-};
-
-
 
 int main()
 {
-    A a;
-    
 
-    B b;
-    
-
-    C c;
-    
-
-    
-
-    A *ptr= &b;
-    ptr->print(1);
+    cout << sizeof(Base) << endl;
+    cout << sizeof(Der) << endl;
 
     return 0;
 }
