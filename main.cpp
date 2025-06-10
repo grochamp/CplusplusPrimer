@@ -1,53 +1,16 @@
 #include <iostream>
 using namespace std;
 
-class PoweredDevice
+template<typename T>
+T getMax(T x, T y)
 {
-    public:
-        int m_i;
-
-        PoweredDevice(int power)
-        {
-            cout << "PoweredDevice : " << power << '\n';
-        }
-
-};
-
-class Scanner : virtual public PoweredDevice
-{
-    public :
-        Scanner(int scanner, int power)
-         : PoweredDevice(power)
-            {
-                cout << "Scanner : " << scanner << '\n';
-
-            }
-
-};
-
-class Printer : virtual public PoweredDevice
-{
-    public :
-        Printer(int printer, int power)
-         :  PoweredDevice(power)
-            {
-                cout << "Prineter : " << printer << '\n';
-            }
-};
-
-class Copier : public Scanner, public Printer
-{
-    public:
-        Copier(int scanner, int printer, int power)
-            : Scanner(scanner, power), Printer(printer, power), PoweredDevice(power)
-            {}
-};
+    return  (x>y) ? x : y;
+}
 
 int main()
 {
-    Copier cop(1, 2, 3);
-
-    cout << &cop.Scanner::PoweredDevice::m_i << endl;
-    cout << &cop.Printer::PoweredDevice::m_i << endl;
-    return  0;
+    cout << getMax(1, 7) << endl;
+    cout << getMax(3.14, 8.88) << endl;
+    cout << getMax("a", "c") << endl;
+    return 0;
 }
