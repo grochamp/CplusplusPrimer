@@ -1,27 +1,53 @@
 #include <iostream>
 using namespace std;
 
-class Base
+class PoweredDevice
 {
     public:
+        int m_i;
 
-        virtual void fun1() {};
-        virtual void fun2() {};
+        PoweredDevice(int power)
+        {
+            cout << "PoweredDevice : " << power << '\n';
+        }
+
 };
 
-class Der : public Base
+class Scanner : virtual public PoweredDevice
+{
+    public :
+        Scanner(int scanner, int power)
+         : PoweredDevice(power)
+            {
+                cout << "Scanner : " << scanner << '\n';
+
+            }
+
+};
+
+class Printer : virtual public PoweredDevice
+{
+    public :
+        Printer(int printer, int power)
+         :  PoweredDevice(power)
+            {
+                cout << "Prineter : " << printer << '\n';
+            }
+};
+
+class Copier : public Scanner, public Printer
 {
     public:
-
-        virtual void fun1() {};
-        virtual void fun2() {};
+        Copier(int scanner, int printer, int power)
+            : Scanner(scanner, power), Printer(printer, power), PoweredDevice(power)
+            {}
 };
 
 int main()
 {
+    Copier cop(1, 2, 3);
 
-    cout << sizeof(Base) << endl;
-    cout << sizeof(Der) << endl;
-
-    return 0;
+    cout << &cop.Scanner::PoweredDevice::m_i << endl;
+    cout << &cop.Printer::PoweredDevice::m_i << endl;
+    return  0;
 }

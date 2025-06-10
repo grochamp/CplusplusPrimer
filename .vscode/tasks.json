@@ -3,18 +3,18 @@
         {
             "type": "cppbuild",
             "label": "C/C++: g++.exe build active file",
-            "command": "C:\\Programming\\MinGW\\bin/g++.exe",
+            "command": "C:\\Programming\\MinGW\\bin\\g++.exe",
             "args": [
+                "-mconsole",
                 "-fdiagnostics-color=always",
                 "-g",
                 "C:\\Programming\\add.cpp",
-                "C:\\Programming\\add.h",
-                "C:\\Programming\\test.cpp",
-                "C:\\Programming\\calc.h",
                 "C:\\Programming\\calc.cpp",
+                "C:\\Programming\\test.cpp",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                
             ],
             "options": {
                 "cwd": "C:\\Programming\\MinGW\\bin"
