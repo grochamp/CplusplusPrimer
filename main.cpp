@@ -1,60 +1,28 @@
+//예외처리 : 느려짐
 #include <iostream>
-#include <cstring>
+#include <fstream>
+#include <String>
+#include <cmath>
+
 using namespace std;
-
-template <class T, int size>
-class StaticArray_BASE
-{
-    private:
-        T m_array[size];
-    public:
-        T * getArray() {return m_array;}
-
-        T& operator[](int index)
-        {
-            return m_array[index];
-        }
-
-       
-void print()
-{
-    for (int count = 0; count < size; ++count)
-    cout << (*this)[count] << ' ';
-    cout << endl;
-
-}
-};
-
-
-template <class T, int size>
-class StaticArray : public StaticArray_BASE<T, size>
-{};
-
-
-template <int size>
-void print(StaticArray<char, size> &array)
-{
-    for (int count = 0; count < size; ++count)
-    cout << array[count];
-    cout << endl;
-}
-
-
 
 int main()
 {
-    StaticArray<int, 4> int4;
-    int4[0] = 1;
-    int4[1] = 2;
+    //try, catch, throw
+    double x;
+    cin >> x;
 
+    try //잘못된 경우
+    {
+        if (x < 0.0) throw string("잘못된 입력");
 
-    int4.print();
+        cout << sqrt(x) << endl;
+    }
+    catch (string error_message) //대처법
+    {
 
-    StaticArray<char, 14> char14;
-    char14[0] = 'H';
-    char14[1] = 'e';
-    strcpy_s(char14.getArray(), 14, "Hello, World");
-    char14.print();
+        cout << error_message << endl;
+    }
 
-}
-
+    return 0;
+}  
