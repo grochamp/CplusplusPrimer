@@ -1,42 +1,60 @@
 #include <iostream>
-#include <array>
-//#include "Storage8.h"
-
+#include <cstring>
 using namespace std;
 
-template<typename T>
-class A
+template <class T, int size>
+class StaticArray_BASE
 {
+    private:
+        T m_array[size];
     public:
-         void doSomething()
-         {
-            cout << typeid(T).name() << endl; //매개변수 T의 타입 이름 출력
-         }
+        T * getArray() {return m_array;}
 
+        T& operator[](int index)
+        {
+            return m_array[index];
+        }
 
-         void test()
-         {}
-};
-
-template<>
-class A<char>
+       
+void print()
 {
-    public :
-    void doSomething()
-    {
-        cout << "ITISCHARSPECIALIZATION" << endl;
-    }
+    for (int count = 0; count < size; ++count)
+    cout << (*this)[count] << ' ';
+    cout << endl;
+
+}
 };
+
+
+template <class T, int size>
+class StaticArray : public StaticArray_BASE<T, size>
+{};
+
+
+template <int size>
+void print(StaticArray<char, size> &array)
+{
+    for (int count = 0; count < size; ++count)
+    cout << array[count];
+    cout << endl;
+}
 
 
 
 int main()
 {
-    A<int> a_int;
-    A<double> a_double;
-    A<char> a_char;
+    StaticArray<int, 4> int4;
+    int4[0] = 1;
+    int4[1] = 2;
 
-    a_int.doSomething();
-    a_double.doSomething();
-    a_char.doSomething();
+
+    int4.print();
+
+    StaticArray<char, 14> char14;
+    char14[0] = 'H';
+    char14[1] = 'e';
+    strcpy_s(char14.getArray(), 14, "Hello, World");
+    char14.print();
+
 }
+
