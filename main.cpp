@@ -1,28 +1,46 @@
-//예외처리 : 느려짐
+//예외 클래스 만들기
 #include <iostream>
-#include <fstream>
-#include <String>
-#include <cmath>
-
 using namespace std;
 
-int main()
+class Exception
 {
-    //try, catch, throw
-    double x;
-    cin >> x;
-
-    try //잘못된 경우
+    public:
+    void report()//
     {
-        if (x < 0.0) throw string("잘못된 입력");
-
-        cout << sqrt(x) << endl;
-    }
-    catch (string error_message) //대처법
-    {
-
-        cout << error_message << endl;
+        cerr << "Exception report" << endl; //cerr : cout랑 비슷
     }
 
-    return 0;
-}  
+};
+
+class MyArray;
+{
+    private://타지역에서 참고불가 friend로 상속에서 참고가능
+        int m_data[5]//int형 m_data 배열(인자수 6개)
+  public :
+  int & operator[] (const int & index) //배열 오퍼레이터 ex) array[5] = 0 가능
+
+    if (index < 0 || index >= 5) throw Exception(); //음수번째, 6번째 넘어가면 -1로 예외처리 
+{
+    return = m_data[index];
+
+}
+};
+
+void doSomething()
+{
+    MyArray my_array;
+
+    try
+    {
+        my_array[100];
+    }
+    catch (const int & x)
+    {
+        cerr << "Exception" << x << endl;
+    }
+
+    catch (Exception & e)
+    {
+        e.report();
+    }
+}
